@@ -1,0 +1,32 @@
+type Employee {
+  id: ID!
+  name: String
+  department: String
+  email: String!
+  address: String
+  dob: String
+  createdAt: String
+}
+
+input NewEmployee {
+  name: String
+  department: String
+  email: String!
+  address: String
+  dob: String
+}
+
+type Result {
+  status: Int
+  code: String
+  data: Employee
+}
+
+type Query {
+  getAllEmployees: [Employee!]!
+  getEmployeeById(id: ID!): Employee
+}
+
+type Mutation {
+  createEmployee(input: NewEmployee): Result!
+}
